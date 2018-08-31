@@ -4,6 +4,11 @@
 
 using namespace std;
 
+bool isSpaceOrPunctuation(char c)
+{
+  
+}
+
 int countPunctuationAndSpaces(char str[])
 {
   int num = 0;
@@ -25,8 +30,11 @@ int main()
   cout << "Enter in your sentence to test: ";
   cin.get(sentence, 80);
 
-  cout << "Sentence entered: " << sentence << endl;
+  int numSpaces = countPunctuationAndSpaces(sentence);
+  char newSent[80 - numSpace];
+  char reverseSent[sizeof(newSent)];
+
+  for()
   
-  cout << "Number of spaces and punctuation: " << countPunctuationAndSpaces(sentence) << endl;
   return 0;
 }
