@@ -4,23 +4,19 @@
 
 using namespace std;
 
-bool isSpaceOrPunctuation(char c)
+char * seperateString(char * str)
 {
-  
-}
-
-int countPunctuationAndSpaces(char str[])
-{
-  int num = 0;
-
-  for(int i = 0; i < strlen(str); i++){
-    int charValue = (int)str[i];
-    if((charValue >= 32 && charValue <= 47) || (charValue >= 58 && charValue <= 64) || (charValue >= 91 && charValue <= 96) || (charValue >= 123 && charValue <= 126)){
-      cout << "Character identified: " << str[i] << endl;
-      num++;
-    }
+  char * strsubstring;
+  char newSentence[80];
+  strsubstring = strtok (str," ,.-");
+  while (strsubstring != NULL)
+  {
+    strsubstring = strtok (NULL, " ,.-");
+    strcat(newSentence, strsubstring);
   }
-  return num;
+
+  str = newSentence;
+  return str;
 }
 
 int main()
@@ -30,11 +26,12 @@ int main()
   cout << "Enter in your sentence to test: ";
   cin.get(sentence, 80);
 
-  int numSpaces = countPunctuationAndSpaces(sentence);
-  char newSent[80 - numSpace];
-  char reverseSent[sizeof(newSent)];
-
-  for()
+  cin.clear();
+  cin.ignore(100, '\n');
   
+  sentence = seperateString(sentence);
+
+  cout << sentence << endl;
+
   return 0;
 }
