@@ -4,9 +4,12 @@
 *
 * Used code from: 
 * http://www.cplusplus.com/reference/cstring/strtok/
+* http://www.cplusplus.com/reference/algorithm/reverse/
+* http://www.cplusplus.com/reference/cstring/strchr/
 */
 
 #include <iostream>
+#include <algorithm>
 #include <stdlib.h>
 #include <string.h>
 
@@ -39,8 +42,11 @@ int main()
   cin.ignore(100, '\n'); 
   
   char * str = seperateString(sentence);
+  char * reversedString = str;
 
-  cout << str << endl;
+  reverse(reversedString, strchr(reversedString, 0));
+
+  cout << reversedString << endl;
 
   return 0;
 }
