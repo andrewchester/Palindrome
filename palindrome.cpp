@@ -5,9 +5,11 @@
 * Used code from: 
 * http://www.cplusplus.com/reference/cstring/strtok/
 * http://www.cplusplus.com/reference/cstring/strcmp/
+* http://www.cplusplus.com/reference/cctype/tolower/  - Can we use tolower() from stdio.h?
 */
 
 #include <iostream>
+#include <stdio.h>
 #include <string.h>
 
 using namespace std;
@@ -42,6 +44,18 @@ char * reverseString(char * str)
   return newStr;
 }
 
+//A function to make the string lowercase
+void makeLower(char * str)
+{
+  //Loops over str
+  for(int i = 0; i < strlen(str); i++)
+  {
+    int asciiValue = (int)str[i]; //Get the ascii value of the character
+    if(asciiValue >= 65 && asciiValue <= 90) //If it's uppercase
+      str[i] = (char)(asciiValue + 32); //Make it lowercase by increasing the ascii value by 32
+  }
+}
+
 int main()
 {
   char sentence[80];
@@ -56,7 +70,9 @@ int main()
   char * str = seperateString(sentence); //Runs the seperateString method to remove spaces and other characters
   char * reversedStr = reverseString(str); //Reverses the string
 
-
+  //Making strings lowercase
+  makeLower(str);
+  makeLower(reversedStr);
 
   //Compare the strings and tell the user if they're palindromes
   if(strcmp(str, reversedStr) == 0)
