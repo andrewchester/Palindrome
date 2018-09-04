@@ -4,13 +4,10 @@
 *
 * Used code from: 
 * http://www.cplusplus.com/reference/cstring/strtok/
-* http://www.cplusplus.com/reference/algorithm/reverse/
-* http://www.cplusplus.com/reference/cstring/strchr/
+* http://www.cplusplus.com/reference/cstring/strcmp/
 */
 
 #include <iostream>
-#include <algorithm>
-#include <stdlib.h>
 #include <string.h>
 
 using namespace std;
@@ -29,6 +26,21 @@ char * seperateString(char * str)
   }
   return newStr; 
 }
+//Reverse string function
+char * reverseString(char * str)
+{
+  char * newStr; //Create a char * pointer
+  newStr = new char[strlen(str)]; //Initialize the pointer
+
+  //For loop for reversing the characters in the array
+  int j = 0;
+  for(int i = strlen(str) - 1; i >= 0; i--)
+  {
+    newStr[j] = str[i];
+    j++;
+  }
+  return newStr;
+}
 
 int main()
 {
@@ -41,12 +53,20 @@ int main()
   cin.clear(); //Clearing the input stream
   cin.ignore(100, '\n'); 
   
-  char * str = seperateString(sentence);
-  char * reversedString = str;
+  char * str = seperateString(sentence); //Runs the seperateString method to remove spaces and other characters
+  char * reversedStr = reverseString(str); //Reverses the string
 
-  reverse(reversedString, strchr(reversedString, 0));
 
-  cout << reversedString << endl;
+
+  //Compare the strings and tell the user if they're palindromes
+  if(strcmp(str, reversedStr) == 0)
+  {
+    cout << "Palindrome." << endl;
+  }
+  else
+  {
+    cout << "Not a palindrome." << endl;
+  }
 
   return 0;
 }
