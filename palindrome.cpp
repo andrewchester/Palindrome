@@ -5,11 +5,9 @@
 * Used code from: 
 * http://www.cplusplus.com/reference/cstring/strtok/
 * http://www.cplusplus.com/reference/cstring/strcmp/
-* http://www.cplusplus.com/reference/cctype/tolower/  - Can we use tolower() from stdio.h?
 */
 
 #include <iostream>
-#include <stdio.h>
 #include <string.h>
 
 using namespace std;
